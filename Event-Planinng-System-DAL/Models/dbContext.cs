@@ -48,6 +48,13 @@ namespace Event_Planinng_System_DAL.Models
             modelBuilder.Entity<Emails>(entity =>
             {
                 entity.HasKey(e => new { e.type, e.EventId });
+                entity.Property(e => e.type).HasConversion<string>();
+            });
+
+            //events
+            modelBuilder.Entity<Event>(entity =>
+            {
+                entity.Property(e => e.EventType).HasConversion<string>();
             });
 
             //event images
@@ -62,12 +69,18 @@ namespace Event_Planinng_System_DAL.Models
                 entity.HasKey(e=>new { e.UserId, e.EventId });
             });
 
+            //role
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.Property(e => e.Name).HasConversion<string>();
+            });
+
             //to do list
             modelBuilder.Entity<ToDoList>(entity =>
             {
                 entity.HasKey(e => new { e.Title, e.EventId });
+                
             });
-
 
             //userRole 
             modelBuilder.Entity<UserRole>(entity =>
