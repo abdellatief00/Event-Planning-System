@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-center align-content-center" style="height: 90vh;">
+    <div class="d-flex justify-content-center align-items-center">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <p-card header="Login" [style]="{width:'400px', backgroundColor:'lightgrey'}"> 
+                <div class="mt-2">
+                <p-floatLabel>
+                    <input id="email" type="text" class="w-100"  pInputText  name="email" formControlName="email">
+                    <label for="email">Email</label>
+                </p-floatLabel>
+                
+                <small *ngIf="emailControl.invalid && (emailControl.dirty||emailControl.touched)" class="block p-error mb-3">
+                    <div *ngIf="emailControl.errors?.['required']">Email is Required</div>
+                    <div *ngIf="emailControl.errors?.['email']">Email must be Valid</div>
+                </small>
+            </div>
+            <div class="mt-4">
+                <p-floatLabel>
+                    <input id="password" type="password" class="w-100" pInputText name="password" formControlName="password">
+                    <label for="password">Password</label>
+                </p-floatLabel>
+                <small *ngIf="passwordControl.invalid && (passwordControl.dirty||passwordControl.touched)" class="block p-error">
+                    <div *ngIf="passwordControl.errors?.['required']">Password is Required</div>
+                </small>
+            </div>
+                <button pButton label="Login" class="p-button-success w-100 mt-2" [disabled]="loginForm.invalid"></button>
+            </p-card>
+        </form>
+    </div>
+</div>
