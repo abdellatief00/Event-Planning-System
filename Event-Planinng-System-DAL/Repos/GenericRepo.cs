@@ -34,5 +34,7 @@ namespace Event_Planinng_System_DAL.Repos
         {
             db.Set<TEntity>().Remove(entity);
         }
+        
+        
     }
 }

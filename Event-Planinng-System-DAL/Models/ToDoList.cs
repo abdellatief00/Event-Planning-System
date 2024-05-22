@@ -19,6 +19,6 @@ namespace Event_Planinng_System_DAL.Models
         public string Description { get; set; }
         [ForeignKey("EventNavigation")]
         public int EventId { get; set; }    
-        public Event EventNavigation { get; set; }
+        public virtual Event EventNavigation { get; set; }
     }
 }

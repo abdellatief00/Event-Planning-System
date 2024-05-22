@@ -9,14 +9,14 @@ namespace Event_Planinng_System_DAL.Models
 {
     public class Comments
     {
-        [ForeignKey("UserNavigation")]
+        //[ForeignKey("UserNavigation")]
         public int UserId { get; set; }
         [ForeignKey("EventNavigation")]
         public int EventId { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
         public DateTime CommentDate { get; set; }
-        public User UserNavigation { get; set; }
-        public Event EventNavigation { get; set; }
+        public virtual User UserNavigation { get; set; }
+        public virtual Event EventNavigation { get; set; }
     }
 }

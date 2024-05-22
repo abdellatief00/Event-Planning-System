@@ -1,4 +1,5 @@
 using Event_Planinng_System_DAL.Models;
+using Event_Planinng_System_DAL.Unit_Of_Work;
 using Microsoft.EntityFrameworkCore;
 
 namespace Event_Planning_System
@@ -17,9 +18,10 @@ namespace Event_Planning_System
 
             builder.Services.AddDbContext<dbContext>(optionBuiler =>
             {
-                optionBuiler.UseLazyLoadingProxies().UseSqlServer(connectionString);
+                optionBuiler.UseLazyLoadingProxies().UseSqlServer(connectionString , b => b.MigrationsAssembly("Event-Planning-System"));
             });
 
+            builder.Services.AddScoped<UnitOfWork>();
             // Add services to the container.
 
             builder.Services.AddControllers();

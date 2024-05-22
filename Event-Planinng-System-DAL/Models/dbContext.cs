@@ -42,6 +42,10 @@ namespace Event_Planinng_System_DAL.Models
             modelBuilder.Entity<Comments>(entity =>
             {
                 entity.HasKey(e => new { e.UserId, e.EventId });
+                entity.HasOne(e=>e.UserNavigation)
+                .WithMany(s => s.CommentsNavigation)
+                .HasForeignKey(e => e.UserId)
+                .OnDelete(DeleteBehavior.NoAction); 
             });
 
             //Emails
@@ -66,7 +70,7 @@ namespace Event_Planinng_System_DAL.Models
             //invite 
             modelBuilder.Entity<Invite>(entity =>
             {
-                entity.HasKey(e=>new { e.UserId, e.EventId });
+                entity.HasKey(e=>new { e.AttendantId, e.EventId });
             });
 
             //role
