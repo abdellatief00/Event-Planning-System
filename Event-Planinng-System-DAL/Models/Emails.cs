@@ -13,7 +13,7 @@ namespace Event_Planinng_System_DAL.Models
     {
         [StringLength(50, MinimumLength =3)]
         public string subject { get; set; }
-        [MinLength(3)]
+        [MinLength(1)]
         public string body { get; set; }
         public EmailType type { get; set; }
         [ForeignKey("EventNavigation")]

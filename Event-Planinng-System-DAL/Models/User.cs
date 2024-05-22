@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Event_Planinng_System_DAL.Model_Validations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,15 +26,15 @@ namespace Event_Planinng_System_DAL.Models
         public string Phone { get; set; }
         public bool IsDeleted { get; set; }
         [StringLength(50, MinimumLength = 3, ErrorMessage = "enter a string between 3 and 50")]
-        public string Street { get; set; }
+        public string? Street { get; set; }
         [StringLength(50, MinimumLength = 3, ErrorMessage = "enter a string between 3 and 50")]
-        public string City { get; set; }
+        public string? City { get; set; }
         [StringLength(50, MinimumLength = 3, ErrorMessage = "enter a string between 3 and 50")]
-        public string Region { get; set; }
+        public string? Region { get; set; }
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Postal code must be exactly 5 digits")]
-        public int PostalCode { get; set; }
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfBirth { get; set; }
+        public int? PostalCode { get; set; }
+        [PastDate]
+        public DateOnly DateOfBirth { get; set; }
         public bool EmailConfirmed { get; set; }
         public string? Image { get; set; }
         public virtual List<UserRole> UserRoleNavigation { get; set; } = new List<UserRole>();

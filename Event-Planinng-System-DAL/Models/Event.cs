@@ -1,4 +1,5 @@
 ﻿using Event_Planinng_System_DAL.Enums;
+using Event_Planinng_System_DAL.Model_Validations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,15 +23,16 @@ namespace Event_Planinng_System_DAL.Models
         [StringLength(500, MinimumLength =3)]
         public string Location { get; set; }
         [Range(0, int.MaxValue)]
-        public int AttendanceNumber { get; set; }
+        public int? AttendanceNumber { get; set; }
         [StringLength(5000, MinimumLength =3)]
         public string? GoogleMapsLocation { get; set; }
         [Range(0, int.MaxValue)]
-        public int Budget { get; set; }
+        public int? Budget { get; set; }
         public EventType EventType { get; set; }
+        [FutureDate]
         public DateTime EventDate { get; set; }
         public bool IsDeleted { get; set; }
-        public DateTime DateOfCreation { get; set;}
+        public DateOnly DateOfCreation { get; set;}
 
 
         public virtual User CreatorNavigation { get; set; }

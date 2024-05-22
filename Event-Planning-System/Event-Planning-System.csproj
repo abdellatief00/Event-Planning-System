@@ -25,4 +25,10 @@
     <ProjectReference Include="..\Event-Planinng-System-DAL\Event-Planinng-System-DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
 </Project>

@@ -82,8 +82,7 @@ namespace Event_Planinng_System_DAL.Models
             //to do list
             modelBuilder.Entity<ToDoList>(entity =>
             {
-                entity.HasKey(e => new { e.Title, e.EventId });
-                
+                entity.HasKey(e => new { e.Title, e.EventId });                
             });
 
             //userRole 
