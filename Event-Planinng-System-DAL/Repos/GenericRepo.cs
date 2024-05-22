@@ -15,26 +15,30 @@ namespace Event_Planinng_System_DAL.Repos
             db = _db;
         }
 
-        public List<TEntity> GetAll()
+        public async Task<List<TEntity>> GetAll()
         {
-            return db.Set<TEntity>().ToList();
+            return await db.Set<TEntity>().ToListAsync();
         }
 
-        public void Add(TEntity entity)
+        public async Task Add(TEntity entity)
         {
-            db.Set<TEntity>().Add(entity);
+            await db.Set<TEntity>().AddAsync(entity);
+            await db.SaveChangesAsync();
         }
 
-        public void Edit(TEntity entity)
+        public  async Task Edit(TEntity entity)
         {
             db.Entry(entity).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+
         }
 
-        public void HardDelete(TEntity entity)
+        public  async Task HardDelete(TEntity entity)
         {
-            db.Set<TEntity>().Remove(entity);
+             db.Set<TEntity>().Remove(entity);
+             await db.SaveChangesAsync();
         }
-        
-        
+
+
     }
 }
