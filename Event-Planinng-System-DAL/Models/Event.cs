@@ -10,10 +10,9 @@ using System.Threading.Tasks;
 
 namespace Event_Planinng_System_DAL.Models
 {
-    public class Event
+    public class Event : InheritIdAndIsDeleted
     {
-        [Key]
-        public int Id { get; set; }
+
         [ForeignKey("CreatorNavigation")]
         public int CreatorId { get; set; }
         [StringLength(50, MinimumLength =3)]
@@ -31,7 +30,6 @@ namespace Event_Planinng_System_DAL.Models
         public EventType EventType { get; set; }
         [FutureDate]
         public DateTime EventDate { get; set; }
-        public bool IsDeleted { get; set; }
         public DateOnly DateOfCreation { get; set;}
 
 

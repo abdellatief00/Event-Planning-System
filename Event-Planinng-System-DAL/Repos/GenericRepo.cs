@@ -9,7 +9,7 @@ namespace Event_Planinng_System_DAL.Repos
 {
     public class GenericRepo<TEntity> where TEntity : class
     {
-        dbContext db;
+        protected dbContext db;
         public GenericRepo(dbContext _db)
         {
             db = _db;
@@ -30,15 +30,14 @@ namespace Event_Planinng_System_DAL.Repos
         {
             db.Entry(entity).State = EntityState.Modified;
             await db.SaveChangesAsync();
-
         }
 
-        public  async Task HardDelete(TEntity entity)
+        public virtual async Task Delete(TEntity entity)
         {
-             db.Set<TEntity>().Remove(entity);
-             await db.SaveChangesAsync();
+            db.Set<TEntity>().Remove(entity);
+            await db.SaveChangesAsync();
         }
-
-
     }
 }
+
+

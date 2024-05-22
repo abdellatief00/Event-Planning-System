@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 
 namespace Event_Planinng_System_DAL.Models
 {
-    public class User
+    public class User : InheritIdAndIsDeleted
     {
-        [Key]
-        public int Id { get; set; }
+
         [EmailAddress(ErrorMessage = "invalid email message")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
@@ -24,7 +23,7 @@ namespace Event_Planinng_System_DAL.Models
         public string LName { get; set; }
         [RegularExpression(@"^\d{11}$", ErrorMessage = "Phone number must be exactly 11 digits")]
         public string Phone { get; set; }
-        public bool IsDeleted { get; set; }
+
         [StringLength(50, MinimumLength = 3, ErrorMessage = "enter a string between 3 and 50")]
         public string? Street { get; set; }
         [StringLength(50, MinimumLength = 3, ErrorMessage = "enter a string between 3 and 50")]

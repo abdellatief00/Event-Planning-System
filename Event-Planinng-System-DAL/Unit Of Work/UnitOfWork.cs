@@ -10,14 +10,15 @@ namespace Event_Planinng_System_DAL.Unit_Of_Work
 {
     public class UnitOfWork
     {
-        GenericRepo<User> userRepository;
-        GenericRepo<Attendance> attendanceRepository;
+        GenericRepoForId<User> userRepository;
+        GenericRepoForId<Attendance> attendanceRepository;
+        GenericRepoForId<Event> eventRepo;
+        GenericRepoForId<Role> roleRepo;
+
         GenericRepo<Comments> commentsRepo;
         GenericRepo<Emails> emailRepo;
-        GenericRepo<Event> eventRepo;
         GenericRepo<EventImages> eventimagesRepo;
         GenericRepo<Invite> inviteRepo;
-        GenericRepo<Role> roleRepo;
         GenericRepo<ToDoList> todolistRepo;
         GenericRepo<UserRole> userrroleRepo;
 
@@ -27,13 +28,13 @@ namespace Event_Planinng_System_DAL.Unit_Of_Work
             db = _db;
         }
 
-        public GenericRepo<User> UserRepo
+        public GenericRepoForId<User> UserRepo
         {
-            get => userRepository ??= new GenericRepo<User>(db);              
+            get => userRepository ??= new GenericRepoForId<User>(db);              
         }
-        public GenericRepo<Attendance> AttendanceRepo
+        public GenericRepoForId<Attendance> AttendanceRepo
         {
-            get => attendanceRepository ??= new GenericRepo<Attendance>(db);
+            get => attendanceRepository ??= new GenericRepoForId<Attendance>(db);
         }
         public GenericRepo<Comments> CommentsRepo
         {
@@ -43,9 +44,9 @@ namespace Event_Planinng_System_DAL.Unit_Of_Work
         {
             get => emailRepo ??= new GenericRepo<Emails>(db);
         }
-        public GenericRepo<Event> EventRepo
+        public GenericRepoForId<Event> EventRepo
         {
-            get => eventRepo ??= new GenericRepo<Event>(db);
+            get => eventRepo ??= new GenericRepoForId<Event>(db);
         }
         public GenericRepo<EventImages> EventImagesRepo
         {
@@ -55,9 +56,9 @@ namespace Event_Planinng_System_DAL.Unit_Of_Work
         {
             get => inviteRepo ??= new GenericRepo<Invite>(db);
         }
-        public GenericRepo<Role> RoleRepo
+        public GenericRepoForId<Role> RoleRepo
         {
-            get => roleRepo ??= new GenericRepo<Role>(db);
+            get => roleRepo ??= new GenericRepoForId<Role>(db);
         }
         public GenericRepo<ToDoList> ToDoListRepo
         {
