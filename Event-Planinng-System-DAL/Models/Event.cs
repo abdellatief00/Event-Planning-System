@@ -31,10 +31,12 @@ namespace Event_Planinng_System_DAL.Models
         public DateTime EventDate { get; set; }
         public bool IsDeleted { get; set; }
         public DateTime DateOfCreation { get; set;}
+
+
         public User CreatorNavigation { get; set; }
         public virtual List<Invite> PeopleInvitesNavigation { get; set; } = new List<Invite>();
         public virtual List<ToDoList> ToDoListsNavigation { get; set; } = new List<ToDoList>();   
-        public virtual List<Emails> EventEmailsNavigation { get; set; } = new List<Emails>();   
-
+        public virtual List<Emails> EventEmailsNavigation { get; set; } = new List<Emails>();
+        public virtual List<EventImages> EventImagesNavigation { get; set; } = new List<EventImages>();
     }
 }
