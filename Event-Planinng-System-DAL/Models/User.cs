@@ -32,8 +32,7 @@ namespace Event_Planinng_System_DAL.Models
         public string Region { get; set; }
         [RegularExpression(@"^\d{5}$", ErrorMessage = "Postal code must be exactly 5 digits")]
         public int PostalCode { get; set; }
-        [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:mm/dd/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime DateOfBirth { get; set; }
+        public DateOnly DateOfBirth { get; set; }
         public bool EmailConfirmed { get; set; }
         public string? Image { get; set; }
         public virtual List<UserRole> UserRoleNavigation { get; set; } = new List<UserRole>();

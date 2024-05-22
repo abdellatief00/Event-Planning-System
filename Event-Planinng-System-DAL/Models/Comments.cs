@@ -15,7 +15,7 @@ namespace Event_Planinng_System_DAL.Models
         public int EventId { get; set; }
         public string Title { get; set; }
         public string Body { get; set; }
-        public DateTime CommentDate { get; set; }
+        public DateOnly CommentDate { get; set; }
         public User UserNavigation { get; set; }
         public Event EventNavigation { get; set; }
     }

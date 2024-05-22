@@ -12,10 +12,10 @@ namespace Event_Planinng_System_DAL.Models
     public class Emails
     {
         [StringLength(50, MinimumLength =3)]
-        public string subject { get; set; }
+        public string Subject { get; set; }
         [MinLength(3)]
-        public string body { get; set; }
-        public EmailType type { get; set; }
+        public string Body { get; set; }
+        public EmailType Type { get; set; }
         [ForeignKey("EventNavigation")]
         public int EventId { get; set; }
         public Event EventEmailsNavigation { get; set; }  
